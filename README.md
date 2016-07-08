@@ -9,4 +9,5 @@ Daniel Dobalian ([dadobali@microsoft.com](mailto:dadobali@microsoft.com))
 ## References
 
 [QuickStart Guide](https://azure.microsoft.com/en-us/documentation/articles/active-directory-devquickstarts-android/)
+
 [AAD ADAL V1 Android Library](https://github.com/AzureAD/azure-activedirectory-library-for-android)
