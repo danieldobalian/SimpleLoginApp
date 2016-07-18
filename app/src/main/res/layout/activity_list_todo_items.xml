@@ -7,17 +7,31 @@
     android:background="#303030"
     android:weightSum="1">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="40dp"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="N/A"
-                android:id="@+id/userLoggedIn"
-                android:textColor="#2B98EC"
-                android:textSize="25dp"
-                android:layout_row="1"
-                android:layout_column="1"
-                android:layout_columnSpan="5"
-                android:layout_gravity="center_horizontal" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="40dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="N/A"
+        android:id="@+id/userLoggedIn"
+        android:textColor="#2B98EC"
+        android:textSize="25dp"
+        android:layout_row="1"
+        android:layout_column="1"
+        android:layout_columnSpan="5"
+        android:visibility="invisible"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="346dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:background="#2B98EC"
+        android:textColor="#303030"
+        android:textSize="26dp"
+        android:text="Sign In"
+        android:id="@+id/login"
+        android:onClick="login"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.04" />
 </LinearLayout>

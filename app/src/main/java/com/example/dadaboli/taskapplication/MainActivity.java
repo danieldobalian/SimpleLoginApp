@@ -26,6 +26,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -67,11 +68,14 @@ public class MainActivity extends Activity {
 
         Toast.makeText(getApplicationContext(), TAG + "LifeCycle: OnCreate", Toast.LENGTH_SHORT)
                 .show();
+    }
 
+    public void login(View v) {
         mLoginProgressDialog = new ProgressDialog(this);
         mLoginProgressDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         mLoginProgressDialog.setMessage("Login in progress...");
         mLoginProgressDialog.show();
+
         // Ask for token and provide callback
         try {
             mAuthContext = new AuthenticationContext(MainActivity.this, Constants.AUTHORITY_URL,
@@ -110,21 +114,23 @@ public class MainActivity extends Activity {
                                 TextView textView = (TextView) findViewById(R.id.userLoggedIn);
                                 try {
                                     Log.v("d", "Attempting Graph API Call");
+
                                     Map graphResult = APIHelper.getJson(protectedResUrl+"v1.0/me/", null, result.getAccessToken());
+
                                     Log.v("d", "Results: " + graphResult.get("displayName").toString());
 
-                                    textView.append("\n\n\n\n\n\nGraph API Successful.\n\nDisplay Name: " + graphResult.get("displayName").toString());
+                                    textView.append("\n\n\n\n\n\nGraph API Successful.\n\nDisplay Name: " + graphResult.get("displayName").toString() + ".");
 
                                     Toast.makeText(getApplicationContext(), TAG + "Graph Success", Toast.LENGTH_SHORT)
                                             .show();
                                 } catch (Exception e) {
                                     Log.v("d", "Exception Generated: " + e.toString());
+
                                     textView.append("\n\n\n\n\n\nGraph API Failed.");
+
                                     Toast.makeText(getApplicationContext(), TAG + "Graph Failed", Toast.LENGTH_SHORT)
                                             .show();
                                 }
-                            } else {
-                                //TODO: popup error alert
                             }
                         }
                     });
@@ -137,10 +143,16 @@ public class MainActivity extends Activity {
     private void updateLoggedInUser() {
         TextView textView = (TextView) findViewById(R.id.userLoggedIn);
         textView.setText("Login Failed.\n\nUser: N/A");
+
         if (Constants.CURRENT_RESULT != null) {
             if (Constants.CURRENT_RESULT.getIdToken() != null) {
+                /* hide button and bring out textview */
+                findViewById(R.id.login).setVisibility(View.INVISIBLE);
+                findViewById(R.id.userLoggedIn).setVisibility(View.VISIBLE);
+
                 Log.v("v", "Token: " + Constants.CURRENT_RESULT.getUserInfo());
-                textView.setText("Login Successful.\n\nGiven Name: " + Constants.CURRENT_RESULT.getUserInfo().getGivenName() + ".");
+
+                textView.setText("\n\n\n\nLogin Successful.\n\nGiven Name: " + Constants.CURRENT_RESULT.getUserInfo().getGivenName() + ".");
             } else {
                 textView.setText("User with No ID Token");
             }

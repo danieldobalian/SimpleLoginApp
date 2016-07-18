@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Tiny TODO</string>
+    <string name="app_name">Simple Login App</string>
     <string name="action_settings">Settings</string>
     <string name="button_due_txt">Due</string>
     <string name="button_add_txt">Add</string>
