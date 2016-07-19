@@ -18,7 +18,7 @@ Apache 2.0 License
 See the Apache Version 2.0 License for specific language governing permissions and limitations under the License.
  */
 
-package com.example.dadaboli.taskapplication;
+package com.example.dadaboli.simpleloginapp;
 
 import android.app.AlertDialog;
 import android.content.Context;

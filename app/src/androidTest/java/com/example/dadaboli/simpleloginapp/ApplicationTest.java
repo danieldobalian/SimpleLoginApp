@@ -1,4 +1,4 @@
-package com.example.dadaboli.taskapplication;
+package com.example.dadaboli.simpleloginapp;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -18,7 +18,7 @@ Apache 2.0 License
 See the Apache Version 2.0 License for specific language governing permissions and limitations under the License.
  */
 
-package com.example.dadaboli.taskapplication.helpers;
+package com.example.dadaboli.simpleloginapp.helpers;
 
 import com.microsoft.aad.adal.AuthenticationResult;
 
@@ -40,6 +40,7 @@ public class Constants {
     public static String AUTHORITY_URL = "https://login.microsoftonline.com/common";
     public static String CLIENT_ID = "82fa5a29-01ca-46e1-a94b-cf025b89e8e6";
     public static String RESOURCE_ID = "http://kidventus.com/TodoListService";
+    public static String PROTECTEDRESURL = "https://graph.microsoft.com/";
 //    public static String REDIRECT_URL = "mstodo://com.example.dadaboli.windowsazure.activedirectory.samples.microsofttasks";
     public static String REDIRECT_URL = "http://LoginApp";
     public static String CORRELATION_ID = "";
