@@ -1,6 +1,8 @@
 package com.example.dadaboli.simpleloginapp.helpers;
 
 
+import android.util.Log;
+
 import com.microsoft.aad.adal.CacheKey;
 import com.microsoft.aad.adal.ITokenCacheStore;
 import com.microsoft.aad.adal.ITokenStoreQuery;
@@ -149,11 +151,15 @@ public class InMemoryCacheStore  implements ITokenCacheStore, ITokenStoreQuery {
     public void clearTokensForUser(String userid) {
         ArrayList<TokenCacheItem> results = this.getTokensForUser(userid);
 
-        for (TokenCacheItem item : results) {
-            if (item.getUserInfo() != null
-                    && item.getUserInfo().getUserId().equalsIgnoreCase(userid)) {
-                this.removeItem(CacheKey.createCacheKey(item));
+        try {
+            for (TokenCacheItem item : results) {
+                if (item.getUserInfo() != null
+                        && item.getUserInfo().getUserId().equalsIgnoreCase(userid)) {
+                    this.removeItem(CacheKey.createCacheKey(item));
+                }
             }
+        } catch (Exception e) {
+            Log.e("d", "Exception Generated: " + e.toString());
         }
     }
 
