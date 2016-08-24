@@ -105,7 +105,16 @@ public class MainActivity extends Activity {
 
                                 Log.v("d", "Results: " + graphResult.get("displayName").toString());
 
-                                textView.append("\n\n\n\n\n\nGraph API Successful.\n\nDisplay Name: " + graphResult.get("displayName").toString() + ".");
+                                textView.append(
+                                        "\n\n\n\n\n\nGraph API Successful.\n\nDisplay Name: "
+                                                + graphResult.get("displayName").toString() + ".");
+
+
+                                /* w/o JSON formatting for more generic cases */
+                                String genResult = makeRequest(HttpRequest.METHOD_GET, Constants.PROTECTEDRESURL
+                                        +"v1.0/me/", true, result.getAccessToken());
+                                Log.v("d", "Result from generic call: " + genResult);
+
                             } catch (Exception e) {
                                 Log.v("d", "Exception Generated: " + e.toString());
 
