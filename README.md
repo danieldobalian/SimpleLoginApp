@@ -1,4 +1,4 @@
-#SimpleLoginApp
+# SimpleLoginApp
 
 Created as a quick demo of the Azure Active Directory Android Library w/ V1 endpoints. If you would like to demo the application please email me to get a test account.
 
